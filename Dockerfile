@@ -10,4 +10,4 @@ WORKDIR /usr/local/src
 ADD Gemfile /usr/local/src/
 RUN bundle install
 VOLUME /usr/local/src
-CMD bundle exec jekyll serve 
+CMD bundle exec jekyll serve --host '0.0.0.0' --watch --incremental
