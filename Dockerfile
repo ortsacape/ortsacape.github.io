@@ -1,13 +1,10 @@
-FROM ruby:2.3.0
-EXPOSE 4000
-ARG USER_ID
-ARG USER_NAME
-RUN useradd -u $USER_ID $USER_NAME -m
-RUN chown -R $USER_NAME:$USER_NAME /usr/local/src
-USER $USER_NAME
-RUN gem install bundler 
-WORKDIR /usr/local/src
-ADD Gemfile /usr/local/src/
-RUN bundle install
-VOLUME /usr/local/src
-CMD bundle exec jekyll serve --host '0.0.0.0' --watch --incremental
+FROM php:5.5-apache
+RUN a2enmod rewrite
+RUN docker-php-ext-install mysqli
+WORKDIR /tmp
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
+WORKDIR /var/www/html
+RUN wp core download --allow-root
+ADD .htaccess /var/www/html/.htaccess
+ADD wp-config.php /var/www/html/wp-config.php
+

@@ -1,12 +1,19 @@
 version: "2"
 services:
-    app:
-        build: 
-            context: .
-            args:
-                - USER_NAME
-                - USER_ID
+
+    wordpress:
+        build: .
         ports:
-            - "4000:4000"
-        volumes:
-            - .:/usr/local/src
+            - "8080:80"
+        links:
+            - mysql
+
+    mysql:
+        image: mysql:5.5
+        environment:
+            - MYSQL_DATABASE=wordpress
+            - MYSQL_USER=wordpress
+            - MYSQL_PASSWORD=secret
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+

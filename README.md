@@ -1,14 +1,7 @@
-# ortsacape.org.za
+# Wordpress Install
 
-## Requirements
+## Local
 
-* sage payment gateway
-* newsletter
-* blog
-* contact form
-
-## Recommendation
-
-* Wordpress for CMS and blog
-* MailChimp for newsletter
-
+```bash
+$ docker-compose up 
+```
