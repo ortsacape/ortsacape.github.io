@@ -1,6 +1,14 @@
 # ortsacape.org.za
 
-## Quickstart
-```
-$ USER_NAME=$USER USER_ID=$(id -u) docker-compose up
-```
+## Requirements
+
+* sage payment gateway
+* newsletter
+* blog
+* contact form
+
+## Recommendation
+
+* Wordpress for CMS and blog
+* MailChimp for newsletter
+
