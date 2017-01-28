@@ -2,11 +2,31 @@ version: "2"
 services:
 
     wordpress:
-        build: .
+        build: 
+            context: .
+            args:
+                - USER_NAME
+                - USER_ID
         ports:
             - "8080:80"
         links:
             - mysql
+        environment: 
+            - TERM=xterm
+            - DB_NAME=wordpress
+            - DB_USER=wordpress
+            - DB_PASSWORD=secret
+            - DB_HOST=mysql
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - WP_DEBUG=true
+            - AUTH_KEY="beBW5d!xFsF0V|8W#C/hu:mL^+oB;p5-plsWgL*Jh#C2413d6RGXf#Eg0-M-C*["
+            - SECURE_AUTH_KEY='@=D?hid%^l;.-+4q}@VSv&_o-<B) yPA%cs]qem.qlU~&^kc^0/tR9|d18jVppBb'
+            - LOGGED_IN_KEY='JLshdZudC-,]5u-0rT,itsd3K=8yt@vz#S(1+4hb1w.:UAY+tf- G0Xs0l-@;i,'
+            - NONCE_KEY='2>rE!^l=[mRA,B+v7) R_Xk3ES;ZP7WvU.yy}z]}s0EOm[w0oq}[34|-YOEg=b'
+            - AUTH_SALT='f!Cq!eXFf4ajO>j;=B=|;Cb[-|oS)qcr#$I,G5c[7*!5oGh,]:11G7A78lHTl22'
+            - SECURE_AUTH_SALT='(z? ):]0hzLqhv{^(DNR@w7x)FLGiOUM#U|G%s2J@E|V*agH7rSKy=xoI1>PU-p_'
+            - LOGGED_IN_SALT='BwlF+g&Og%@5<<rJnf/+Djv^k-%G8BXV{pVd:b2BU|ADOLj(1[}l.Vl[oPLEmC'
+            - NONCE_SALT='gF:Ixs{?+y;n+NJJA%D{ucBk|_K**r.0*28+L};^A+ulzU|l6y2,;(dh!05_4ol'
 
     mysql:
         image: mysql:5.5
@@ -15,5 +35,6 @@ services:
             - MYSQL_USER=wordpress
             - MYSQL_PASSWORD=secret
             - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
 
 
