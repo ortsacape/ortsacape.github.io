@@ -22,6 +22,8 @@
 /** The name of the database for WordPress */
 define('DB_NAME', getenv('DB_NAME') ? getenv('DB_NAME') : getenv('REDIRECT_DB_NAME'));
 
+define('JETPACK_DEV_DEBUG', getenv('JETPACK_DEV_DEBUG') ? getenv('JETPACK_DEV_DEBUG') : getenv('JETPACK_DEV_DEBUG'));
+
 /** MySQL database username */
 define('DB_USER', getenv('DB_USER') ? getenv('DB_USER') : getenv('REDIRECT_DB_USER'));
 

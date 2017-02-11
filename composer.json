@@ -1,0 +1,17 @@
+{
+    "name": "kbcl/ortsacape.org.za",
+    "description": "Marketing website for charity organisation teaching kids programming using Lego robotics.",
+    "authors": [
+        {
+            "name": "Charles Mulder",
+            "email": "keyboardcolab@gmail.com"
+        }
+    ],
+    "require": {
+        "wp-sync-db/wp-sync-db": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "minimum-stability": "dev"
+}
