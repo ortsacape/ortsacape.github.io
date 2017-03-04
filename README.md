@@ -8,7 +8,7 @@ $ USER_NAME=$USER USER_ID=$(id -u) docker-compose up --remove-orphans --build
 
 Bash in running container
 ```bash
-$ docker exec --user $USER -ti ortsacapegithubio_wordpress_1 wp plugin install mailchimp-for-wp jetpack imsanity --activate
+$ docker exec --user $USER -ti ortsacapegithubio_wordpress_1 wp plugin install mailchimp-for-wp jetpack imsanity the-events-calendar social-login-with-auto0 updraftplus --activate
 ```
 
 ## Installing plugins
