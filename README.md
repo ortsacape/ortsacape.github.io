@@ -3,7 +3,7 @@
 ## Local
 
 ```bash
-$ USER_NAME=$USER USER_ID=$(id -u) docker-compose up --remove-orphans --build
+ USER_NAME=$USER USER_ID=$(id -u) docker-compose up --remove-orphans --build
 ```
 
 Bash in running container

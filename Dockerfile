@@ -5,7 +5,7 @@ RUN useradd -u $USER_ID $USER_NAME -m
 RUN usermod -a -G www-data $USER_NAME
 RUN a2enmod rewrite
 RUN apt -qq update && apt install -y git
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN docker-php-ext-install mysqli pdo pdo_mysql 
 WORKDIR /tmp
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -22,5 +22,8 @@ RUN composer install --no-dev --no-autoloader
 
 USER root
 RUN chown $USER_NAME:www-data .htaccess wp-config.php
+RUN find . -type f -exec chmod 664 {} +
+RUN find . -type d -exec chmod 775 {} +
+RUN chmod 660 wp-config.php
 
 

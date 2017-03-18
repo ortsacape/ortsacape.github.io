@@ -28,6 +28,7 @@ services:
             - LOGGED_IN_SALT='BwlF+g&Og%@5<<rJnf/+Djv^k-%G8BXV{pVd:b2BU|ADOLj(1[}l.Vl[oPLEmC'
             - NONCE_SALT='gF:Ixs{?+y;n+NJJA%D{ucBk|_K**r.0*28+L};^A+ulzU|l6y2,;(dh!05_4ol'
             - JETPACK_DEV_DEBUG=true
+            - FS_METHOD=direct
 
     mysql:
         image: mysql:5.5
